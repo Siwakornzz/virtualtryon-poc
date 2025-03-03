@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "prepare-python",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/adapters/image_processor & pip install -r requirements.txt & python setup.py",
+      "problemMatcher": [],
+      "group": "build",
+      "windows": {
+        "command": "cd ${workspaceFolder}\\adapters\\image_processor && pip install -r requirements.txt && python setup.py",
+        "options": {
+          "shell": {
+            "executable": "cmd.exe"
+          }
+        }
+      }
+    },
+    {
+      "label": "prepare-go",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/adapters/api & go mod tidy",
+      "problemMatcher": [],
+      "group": "build",
+      "windows": {
+        "command": "cd ${workspaceFolder}\\adapters\\api & go mod tidy"
+      }
+    },
+    {
+      "label": "prepare-all",
+      "dependsOn": ["prepare-python", "prepare-go"],
+      "problemMatcher": []
+    }
+  ]
+}

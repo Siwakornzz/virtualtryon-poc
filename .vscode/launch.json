@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Go API",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/adapters/api/main.go",
+      "preLaunchTask": "prepare-go",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Launch Python AI",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/adapters/image_processor/main.py",
+      "console": "integratedTerminal",
+      "preLaunchTask": "prepare-python"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Launch Both",
+      "configurations": ["Launch Python AI", "Launch Go API"],
+      "preLaunchTask": "prepare-all",
+      "stopAll": false
+    }
+  ]
+}

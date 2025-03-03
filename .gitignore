@@ -17,6 +17,12 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
+#model
+*.pth
+
+#pycache
+__pycache__/
+
 # Go workspace file
 go.work
 go.work.sum
